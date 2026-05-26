@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>فرص عمل متاحة في السعودية</title>
+
+<meta name="description" content="سجل بياناتك للتقديم على فرص العمل المتاحة داخل السعودية في مجالات متعددة.">
+
+<meta property="og:title" content="فرص عمل في السعودية">
+<meta property="og:description" content="تسجيل سريع للتقديم على الوظائف المتاحة">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Cairo',sans-serif;
+background:#f3f7fc;
+padding:18px;
+color:#0f172a;
+overflow-x:hidden;
+}
+
+.container{
+max-width:430px;
+margin:auto;
+background:#fff;
+border-radius:28px;
+overflow:hidden;
+box-shadow:0 15px 50px rgba(0,0,0,.08);
+position:relative;
+}
+
+.topbar{
+height:6px;
+background:linear-gradient(90deg,#2563eb,#0ea5e9);
+}
+
+.hero{
+padding:34px 24px 28px;
+background:linear-gradient(135deg,#2563eb,#0ea5e9);
+color:#fff;
+text-align:center;
+}
+
+.badge{
+display:inline-block;
+background:rgba(255,255,255,.18);
+padding:8px 16px;
+border-radius:30px;
+font-size:13px;
+margin-bottom:18px;
+backdrop-filter:blur(6px);
+}
+
+.hero h1{
+font-size:31px;
+line-height:1.4;
+margin-bottom:12px;
+font-weight:800;
+}
+
+.hero p{
+font-size:15px;
+line-height:1.9;
+opacity:.97;
+}
+
+.content{
+padding:24px;
+}
+
+.info-box{
+background:#f8fafc;
+border:1px solid #e2e8f0;
+padding:18px;
+border-radius:20px;
+margin-bottom:22px;
+}
+
+.info-item{
+font-size:14px;
+margin-bottom:12px;
+color:#334155;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.info-item:last-child{
+margin-bottom:0;
+}
+
+label{
+display:block;
+margin-bottom:10px;
+font-size:15px;
+font-weight:700;
+color:#0f172a;
+}
+
+input,select{
+width:100%;
+padding:16px;
+border-radius:16px;
+border:1px solid #dbe2ea;
+margin-bottom:18px;
+font-size:15px;
+font-family:'Cairo',sans-serif;
+background:#fff;
+transition:.2s;
+}
+
+input:focus,
+select:focus{
+outline:none;
+border-color:#2563eb;
+box-shadow:0 0 0 4px rgba(37,99,235,.1);
+}
+
+.cta{
+width:100%;
+padding:19px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:#fff;
+font-size:17px;
+font-weight:800;
+cursor:pointer;
+transition:.2s;
+box-shadow:0 10px 25px rgba(37,99,235,.25);
+}
+
+.cta:hover{
+transform:translateY(-2px);
+}
+
+.features{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-top:22px;
+}
+
+.feature{
+background:#f8fafc;
+border:1px solid #e2e8f0;
+padding:15px;
+border-radius:18px;
+text-align:center;
+font-size:13px;
+font-weight:700;
+color:#334155;
+}
+
+.reviews{
+margin-top:24px;
+}
+
+.review{
+background:#fff;
+border:1px solid #e2e8f0;
+padding:16px;
+border-radius:18px;
+margin-bottom:12px;
+box-shadow:0 4px 12px rgba(0,0,0,.03);
+}
+
+.review-name{
+font-weight:700;
+margin-bottom:8px;
+font-size:14px;
+}
+
+.review-text{
+font-size:13px;
+line-height:1.9;
+color:#475569;
+}
+
+.note{
+text-align:center;
+font-size:12px;
+line-height:1.8;
+color:#64748b;
+margin-top:18px;
+}
+
+.footer{
+padding:20px;
+text-align:center;
+font-size:12px;
+color:#94a3b8;
+border-top:1px solid #eef2f7;
+margin-top:26px;
+}
+
+.loader{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(255,255,255,.95);
+z-index:9999;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.spinner{
+width:55px;
+height:55px;
+border:5px solid #ddd;
+border-top:5px solid #2563eb;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin-bottom:18px;
+}
+
+.progress-wrap{
+width:220px;
+margin-top:18px;
+}
+
+.progress-bar{
+height:10px;
+background:#e2e8f0;
+border-radius:30px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#2563eb,#0ea5e9);
+transition:1.2s;
+}
+
+.live-box{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#111827;
+color:#fff;
+padding:14px 18px;
+border-radius:16px;
+font-size:13px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+z-index:999;
+max-width:260px;
+line-height:1.7;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="loader" id="loader">
+
+<div class="spinner"></div>
+
+<div style="font-weight:700;font-size:18px;">
+جارٍ تجهيز طلبك...
+</div>
+
+<div class="progress-wrap">
+
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+
+</div>
+
+</div>
+
+<div class="live-box" id="liveBox">
+تم إرسال طلب جديد من الرياض
+</div>
+
+<div class="container">
+
+<div class="topbar"></div>
+
+<div class="hero">
+
+<div class="badge">
+التسجيل متاح الآن
+</div>
+
+<h1>
+فرص عمل متاحة في السعودية
+</h1>
+
+<p>
+قم بتسجيل بياناتك والتفعيل برقم الهاتف للتقديم على الوظائف المتاحة في عدة تخصصات ومدن داخل المملكة العربية السعودية.
+</p>
+
+</div>
+
+<div class="content">
+
+<div class="info-box">
+
+<div class="info-item">
+✔️ تخصصات متعددة ومتنوعة
+</div>
+
+<div class="info-item">
+✔️ التسجيل من الهاتف بسهولة
+</div>
+
+<div class="info-item">
+✔️ خطوات سريعة وبسيطة
+</div>
+
+  <h1>
+برجاء التسجيل برقم الهاتف </h1>
+
+
+</div>
+
+<form id="jobForm">
+
+<label>
+الاسم الكامل
+</label>
+
+<input type="text" id="name" placeholder="اكتب اسمك الكامل">
+
+<label>
+الوظيفة المطلوبة
+</label>
+
+<select id="job">
+
+<option value="">اختر الوظيفة</option>
+
+<option>سائق</option>
+<option>مندوب توصيل</option>
+<option>خدمة عملاء</option>
+<option>مبيعات</option>
+<option>محاسب</option>
+<option>سكرتير</option>
+<option>حارس أمن</option>
+<option>عامل إنتاج</option>
+<option>عامل مستودع</option>
+<option>فني كهرباء</option>
+<option>فني تكييف</option>
+<option>فني صيانة</option>
+<option>موظف استقبال</option>
+<option>تسويق إلكتروني</option>
+<option>مطور مواقع</option>
+<option>إدارة</option>
+<option>مشرف عمال</option>
+<option>أمين مخزن</option>
+
+</select>
+
+<label>
+المدينة الحالية
+</label>
+
+<select id="city">
+
+<option value="">اختر المدينة</option>
+
+<option>الرياض</option>
+<option>جدة</option>
+<option>الدمام</option>
+<option>الخبر</option>
+<option>مكة</option>
+<option>المدينة</option>
+
+</select>
+
+<button type="submit" class="cta">
+استكمال التسجيل
+</button>
+
+</form>
+
+<div class="features">
+
+<div class="feature">
+واجهة سهلة وسريعة
+</div>
+
+<div class="feature">
+إمكانية التسجيل من الهاتف
+</div>
+
+<div class="feature">
+تخصصات متنوعة
+</div>
+
+<div class="feature">
+خطوات بسيطة
+</div>
+
+</div>
+
+<div class="reviews">
+
+<div class="review">
+
+<div class="review-name">
+أحمد - الرياض
+</div>
+
+<div class="review-text">
+التسجيل كان سهل جدًا وتمت العملية بسرعة من الهاتف.
+</div>
+
+</div>
+
+<div class="review">
+
+<div class="review-name">
+محمد - جدة
+</div>
+
+<div class="review-text">
+واجهة مرتبة وخطوات واضحة وسريعة.
+</div>
+
+</div>
+
+<div class="review">
+
+<div class="review-name">
+سارة - الدمام
+</div>
+
+<div class="review-text">
+قدرت أسجل البيانات بسهولة بدون أي تعقيد.
+</div>
+
+</div>
+
+</div>
+
+<div class="note">
+
+بتسجيلك فإنك توافق على إمكانية التواصل معك بخصوص الوظائف المتاحة المناسبة.
+
+</div>
+
+</div>
+
+<div class="footer">
+
+© 2026 منصة تسجيل الوظائف
+
+</div>
+
+</div>
+
+<script>
+
+const messages=[
+
+'تم إرسال طلب جديد من الرياض',
+'تم استكمال تسجيل جديد من جدة',
+'أحد المستخدمين أكمل التسجيل',
+'تم إرسال بيانات جديدة',
+'تم تسجيل طلب جديد من الدمام'
+
+];
+
+setInterval(()=>{
+
+document.getElementById('liveBox').innerText=
+messages[Math.floor(Math.random()*messages.length)];
+
+},5000);
+
+document.getElementById('jobForm').addEventListener('submit',function(e){
+
+e.preventDefault();
+
+const name=document.getElementById('name').value.trim();
+const job=document.getElementById('job').value;
+const city=document.getElementById('city').value;
+
+if(name.length<2){
+
+alert('يرجى إدخال الاسم الكامل');
+return;
+
+}
+
+if(job===''){
+
+alert('يرجى اختيار الوظيفة');
+return;
+
+}
+
+if(city===''){
+
+alert('يرجى اختيار المدينة');
+return;
+
+}
+
+document.getElementById('loader').style.display='flex';
+
+setTimeout(()=>{
+
+document.getElementById('progressFill').style.width='100%';
+
+},100);
+
+setTimeout(()=>{
+
+window.location.href='https://fkrfhb.one/cl/591030163b379f39?p3={{campaign.name}}&p4={{ad.name}}&source=facebook&site={{site_source_name}}';
+
+},1300);
+
+});
+
+</script>
+
+</body>
+</html>
