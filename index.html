@@ -8,10 +8,10 @@
 
 <title>فرص عمل متاحة في السعودية</title>
 
-<meta name="description" content="سجل بياناتك للتقديم على فرص العمل المتاحة داخل السعودية في مجالات متعددة.">
+<meta name="description" content="منصة تسجيل وفرص مهنية داخل السعودية">
 
 <meta property="og:title" content="فرص عمل في السعودية">
-<meta property="og:description" content="تسجيل سريع للتقديم على الوظائف المتاحة">
+<meta property="og:description" content="تسجيل سريع للوظائف المتاحة">
 <meta property="og:type" content="website">
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -265,6 +265,10 @@ max-width:260px;
 line-height:1.7;
 }
 
+a{
+text-decoration:none;
+}
+
 @keyframes spin{
 100%{
 transform:rotate(360deg);
@@ -281,7 +285,7 @@ transform:rotate(360deg);
 
 <div class="spinner"></div>
 
-<div style="font-weight:700;font-size:18px;">
+<div id="loadingText" style="font-weight:700;font-size:18px;">
 جارٍ تجهيز طلبك...
 </div>
 
@@ -314,7 +318,7 @@ transform:rotate(360deg);
 </h1>
 
 <p>
-قم بتسجيل بياناتك والتفعيل برقم الهاتف للتقديم على الوظائف المتاحة في عدة تخصصات ومدن داخل المملكة العربية السعودية.
+قم بتسجيل بياناتك للتقديم على الوظائف المتاحة في عدة تخصصات ومدن داخل المملكة العربية السعودية.
 </p>
 
 </div>
@@ -335,9 +339,9 @@ transform:rotate(360deg);
 ✔️ خطوات سريعة وبسيطة
 </div>
 
-  <h1>
-برجاء التسجيل برقم الهاتف </h1>
-
+<h1 style="font-size:20px;margin-top:18px;">
+برجاء استكمال البيانات لإتمام التسجيل
+</h1>
 
 </div>
 
@@ -467,6 +471,18 @@ transform:rotate(360deg);
 
 </div>
 
+<div style="text-align:center;margin-top:20px;font-size:13px;">
+
+<a href="#" style="margin:0 10px;color:#64748b;">
+سياسة الخصوصية
+</a>
+
+<a href="#" style="margin:0 10px;color:#64748b;">
+الشروط والأحكام
+</a>
+
+</div>
+
 </div>
 
 <div class="footer">
@@ -531,13 +547,27 @@ setTimeout(()=>{
 
 document.getElementById('progressFill').style.width='100%';
 
-},100);
+document.getElementById('loadingText').innerText='جارٍ التحقق من البيانات...';
+
+},200);
 
 setTimeout(()=>{
 
-window.location.href='https://fkrfhb.one/cl/591030163b379f39?p3={{campaign.name}}&p4={{ad.name}}&source=facebook&site={{site_source_name}}';
+document.getElementById('loadingText').innerText='جارٍ مطابقة الوظائف المناسبة...';
 
-},1300);
+},1800);
+
+setTimeout(()=>{
+
+document.getElementById('loadingText').innerText='جارٍ تجهيز صفحة التسجيل...';
+
+},3000);
+
+setTimeout(()=>{
+
+window.location.href='https://wwmyokgik.one/cl/9b991d78df12e8d9?utm_campaign={{campaign.name}}&utm_adset={{adset.name}}&utm_content={{ad.name}}&utm_source={{site_source_name}}&utm_placement={{placement}}';
+
+},4500);
 
 });
 
