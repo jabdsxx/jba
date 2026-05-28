@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 
 <head>
@@ -6,15 +7,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>فرص عمل متاحة في السعودية</title>
+<title>وظائف متاحة الآن</title>
 
-<meta name="description" content="منصة تسجيل وفرص مهنية داخل السعودية">
-
-<meta property="og:title" content="فرص عمل في السعودية">
-<meta property="og:description" content="تسجيل سريع للوظائف المتاحة">
-<meta property="og:type" content="website">
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -26,94 +21,85 @@ box-sizing:border-box;
 
 body{
 font-family:'Cairo',sans-serif;
-background:#f3f7fc;
-padding:18px;
-color:#0f172a;
+background:#f1f5f9;
+padding:20px;
+display:flex;
+justify-content:center;
 overflow-x:hidden;
 }
 
 .container{
-max-width:430px;
-margin:auto;
+width:100%;
+max-width:400px;
 background:#fff;
-border-radius:28px;
+border-radius:24px;
 overflow:hidden;
-box-shadow:0 15px 50px rgba(0,0,0,.08);
-position:relative;
-}
-
-.topbar{
-height:6px;
-background:linear-gradient(90deg,#2563eb,#0ea5e9);
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+animation:fade .5s ease;
 }
 
 .hero{
-padding:34px 24px 28px;
-background:linear-gradient(135deg,#2563eb,#0ea5e9);
-color:#fff;
+background:linear-gradient(135deg,#2563eb,#3b82f6);
+padding:40px 25px;
 text-align:center;
+color:#fff;
+position:relative;
+overflow:hidden;
 }
 
-.badge{
-display:inline-block;
-background:rgba(255,255,255,.18);
-padding:8px 16px;
-border-radius:30px;
-font-size:13px;
-margin-bottom:18px;
-backdrop-filter:blur(6px);
+.hero:before{
+content:'';
+position:absolute;
+width:220px;
+height:220px;
+background:rgba(255,255,255,.08);
+border-radius:50%;
+top:-100px;
+left:-100px;
 }
 
 .hero h1{
-font-size:31px;
-line-height:1.4;
+font-size:30px;
 margin-bottom:12px;
 font-weight:800;
+position:relative;
 }
 
 .hero p{
-font-size:15px;
-line-height:1.9;
-opacity:.97;
+font-size:14px;
+line-height:1.8;
+opacity:.95;
+position:relative;
 }
 
 .content{
 padding:24px;
 }
 
-.info-box{
-background:#f8fafc;
-border:1px solid #e2e8f0;
-padding:18px;
-border-radius:20px;
-margin-bottom:22px;
-}
-
-.info-item{
-font-size:14px;
-margin-bottom:12px;
-color:#334155;
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.info-item:last-child{
-margin-bottom:0;
+.alert{
+background:#eff6ff;
+border:1px solid #bfdbfe;
+padding:15px;
+border-radius:16px;
+font-size:13px;
+line-height:1.8;
+color:#1e3a8a;
+margin-bottom:20px;
+font-weight:600;
 }
 
 label{
 display:block;
 margin-bottom:10px;
-font-size:15px;
+font-size:14px;
 font-weight:700;
 color:#0f172a;
 }
 
-input,select{
+select{
 width:100%;
-padding:16px;
-border-radius:16px;
+padding:15px;
+border-radius:14px;
 border:1px solid #dbe2ea;
 margin-bottom:18px;
 font-size:15px;
@@ -122,18 +108,17 @@ background:#fff;
 transition:.2s;
 }
 
-input:focus,
 select:focus{
 outline:none;
 border-color:#2563eb;
 box-shadow:0 0 0 4px rgba(37,99,235,.1);
 }
 
-.cta{
+.btn{
 width:100%;
-padding:19px;
+padding:18px;
 border:none;
-border-radius:18px;
+border-radius:16px;
 background:linear-gradient(135deg,#2563eb,#1d4ed8);
 color:#fff;
 font-size:17px;
@@ -143,68 +128,56 @@ transition:.2s;
 box-shadow:0 10px 25px rgba(37,99,235,.25);
 }
 
-.cta:hover{
+.btn:hover{
 transform:translateY(-2px);
 }
 
-.features{
-display:grid;
-grid-template-columns:1fr 1fr;
+.stats{
+display:flex;
 gap:12px;
 margin-top:22px;
 }
 
-.feature{
+.stat{
+flex:1;
 background:#f8fafc;
-border:1px solid #e2e8f0;
-padding:15px;
-border-radius:18px;
+padding:14px;
+border-radius:14px;
 text-align:center;
-font-size:13px;
-font-weight:700;
-color:#334155;
-}
-
-.reviews{
-margin-top:24px;
-}
-
-.review{
-background:#fff;
 border:1px solid #e2e8f0;
-padding:16px;
-border-radius:18px;
-margin-bottom:12px;
-box-shadow:0 4px 12px rgba(0,0,0,.03);
 }
 
-.review-name{
-font-weight:700;
-margin-bottom:8px;
-font-size:14px;
+.stat h3{
+color:#2563eb;
+font-size:20px;
+margin-bottom:4px;
 }
 
-.review-text{
-font-size:13px;
-line-height:1.9;
-color:#475569;
+.stat p{
+font-size:12px;
+color:#64748b;
 }
 
 .note{
-text-align:center;
+margin-top:18px;
 font-size:12px;
+text-align:center;
 line-height:1.8;
 color:#64748b;
-margin-top:18px;
 }
 
-.footer{
-padding:20px;
-text-align:center;
-font-size:12px;
-color:#94a3b8;
-border-top:1px solid #eef2f7;
-margin-top:26px;
+.live{
+position:fixed;
+bottom:18px;
+right:18px;
+background:#111827;
+color:#fff;
+padding:14px 18px;
+border-radius:16px;
+font-size:13px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+z-index:999;
+animation:fade .4s ease;
 }
 
 .loader{
@@ -215,10 +188,10 @@ left:0;
 width:100%;
 height:100%;
 background:rgba(255,255,255,.95);
-z-index:9999;
 justify-content:center;
 align-items:center;
 flex-direction:column;
+z-index:9999;
 }
 
 .spinner{
@@ -231,47 +204,36 @@ animation:spin 1s linear infinite;
 margin-bottom:18px;
 }
 
-.progress-wrap{
+.progress{
 width:220px;
-margin-top:18px;
-}
-
-.progress-bar{
 height:10px;
 background:#e2e8f0;
 border-radius:30px;
 overflow:hidden;
+margin-top:18px;
 }
 
-.progress-fill{
+.fill{
 height:100%;
 width:0%;
-background:linear-gradient(90deg,#2563eb,#0ea5e9);
-transition:1.2s;
-}
-
-.live-box{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#111827;
-color:#fff;
-padding:14px 18px;
-border-radius:16px;
-font-size:13px;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-z-index:999;
-max-width:260px;
-line-height:1.7;
-}
-
-a{
-text-decoration:none;
+background:linear-gradient(90deg,#2563eb,#60a5fa);
+transition:2.5s;
 }
 
 @keyframes spin{
 100%{
 transform:rotate(360deg);
+}
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(15px);
+}
+to{
+opacity:1;
+transform:none;
 }
 }
 
@@ -285,181 +247,133 @@ transform:rotate(360deg);
 
 <div class="spinner"></div>
 
-<div id="loadingText" style="font-weight:700;font-size:18px;">
-جارٍ تجهيز طلبك...
+<div style="font-size:18px;font-weight:700;" id="loadingText">
+جارٍ تجهيز الطلب...
 </div>
 
-<div class="progress-wrap">
-
-<div class="progress-bar">
-<div class="progress-fill" id="progressFill"></div>
-</div>
-
+<div class="progress">
+<div class="fill" id="fill"></div>
 </div>
 
 </div>
 
-<div class="live-box" id="liveBox">
-تم إرسال طلب جديد من الرياض
+<div class="live" id="liveBox">
+تم استلام طلب جديد
 </div>
 
 <div class="container">
 
-<div class="topbar"></div>
-
 <div class="hero">
 
-<div class="badge">
-التسجيل متاح الآن
-</div>
-
 <h1>
-فرص عمل متاحة في السعودية
+وظائف متاحة الآن
 </h1>
 
 <p>
-قم بتسجيل بياناتك للتقديم على الوظائف المتاحة في عدة تخصصات ومدن داخل المملكة العربية السعودية.
+استكمل خطوات التسجيل للتقديم على الوظائف المتاحة حاليًا.
 </p>
 
 </div>
 
 <div class="content">
 
-<div class="info-box">
-
-<div class="info-item">
-✔️ تخصصات متعددة ومتنوعة
-</div>
-
-<div class="info-item">
-✔️ التسجيل من الهاتف بسهولة
-</div>
-
-<div class="info-item">
-✔️ خطوات سريعة وبسيطة
-</div>
-
-<h1 style="font-size:20px;margin-top:18px;">
-برجاء استكمال البيانات لإتمام التسجيل
-</h1>
-
+<div class="alert">
+✔️ وظائف متعددة  
+✔️ نقل كفالة لبعض الوظائف  
+✔️ التقديم متاح من الهاتف
 </div>
 
 <form id="jobForm">
 
 <label>
-الاسم الكامل
+اختر الوظيفة المناسبة
 </label>
 
-<input type="text" id="name" placeholder="اكتب اسمك الكامل">
+<select required>
 
-<label>
-الوظيفة المطلوبة
-</label>
+<option value="">
+اختر الوظيفة
+</option>
 
-<select id="job">
+<option>
+سائق
+</option>
 
-<option value="">اختر الوظيفة</option>
+<option>
+مندوب توصيل
+</option>
 
-<option>سائق</option>
-<option>مندوب توصيل</option>
-<option>خدمة عملاء</option>
-<option>مبيعات</option>
-<option>محاسب</option>
-<option>سكرتير</option>
-<option>حارس أمن</option>
-<option>عامل إنتاج</option>
-<option>عامل مستودع</option>
-<option>فني كهرباء</option>
-<option>فني تكييف</option>
-<option>فني صيانة</option>
-<option>موظف استقبال</option>
-<option>تسويق إلكتروني</option>
-<option>مطور مواقع</option>
-<option>إدارة</option>
-<option>مشرف عمال</option>
-<option>أمين مخزن</option>
+<option>
+حارس أمن
+</option>
+
+<option>
+عامل مستودع
+</option>
+
+<option>
+خدمة عملاء
+</option>
+
+<option>
+فني كهرباء
+</option>
+
+<option>
+مبيعات
+</option>
 
 </select>
 
 <label>
-المدينة الحالية
+هل تحتاج نقل كفالة؟
 </label>
 
-<select id="city">
+<select required>
 
-<option value="">اختر المدينة</option>
+<option value="">
+اختر
+</option>
 
-<option>الرياض</option>
-<option>جدة</option>
-<option>الدمام</option>
-<option>الخبر</option>
-<option>مكة</option>
-<option>المدينة</option>
+<option>
+نعم
+</option>
+
+<option>
+لا
+</option>
 
 </select>
 
-<button type="submit" class="cta">
-استكمال التسجيل
+<button type="submit" class="btn">
+تفعيل الطلب الآن
 </button>
 
 </form>
 
-<div class="features">
+<div class="stats">
 
-<div class="feature">
-واجهة سهلة وسريعة
-</div>
+<div class="stat">
 
-<div class="feature">
-إمكانية التسجيل من الهاتف
-</div>
+<h3>
++8K
+</h3>
 
-<div class="feature">
-تخصصات متنوعة
-</div>
-
-<div class="feature">
-خطوات بسيطة
-</div>
+<p>
+طلبات مكتملة
+</p>
 
 </div>
 
-<div class="reviews">
+<div class="stat">
 
-<div class="review">
+<h3>
+94%
+</h3>
 
-<div class="review-name">
-أحمد - الرياض
-</div>
-
-<div class="review-text">
-التسجيل كان سهل جدًا وتمت العملية بسرعة من الهاتف.
-</div>
-
-</div>
-
-<div class="review">
-
-<div class="review-name">
-محمد - جدة
-</div>
-
-<div class="review-text">
-واجهة مرتبة وخطوات واضحة وسريعة.
-</div>
-
-</div>
-
-<div class="review">
-
-<div class="review-name">
-سارة - الدمام
-</div>
-
-<div class="review-text">
-قدرت أسجل البيانات بسهولة بدون أي تعقيد.
-</div>
+<p>
+نسبة قبول
+</p>
 
 </div>
 
@@ -467,27 +381,9 @@ transform:rotate(360deg);
 
 <div class="note">
 
-بتسجيلك فإنك توافق على إمكانية التواصل معك بخصوص الوظائف المتاحة المناسبة.
+بعد التفعيل سيتم استكمال خطوات التسجيل والتحقق من الطلب.
 
 </div>
-
-<div style="text-align:center;margin-top:20px;font-size:13px;">
-
-<a href="#" style="margin:0 10px;color:#64748b;">
-سياسة الخصوصية
-</a>
-
-<a href="#" style="margin:0 10px;color:#64748b;">
-الشروط والأحكام
-</a>
-
-</div>
-
-</div>
-
-<div class="footer">
-
-© 2026 منصة تسجيل الوظائف
 
 </div>
 
@@ -497,11 +393,11 @@ transform:rotate(360deg);
 
 const messages=[
 
-'تم إرسال طلب جديد من الرياض',
-'تم استكمال تسجيل جديد من جدة',
-'أحد المستخدمين أكمل التسجيل',
+'تم استلام طلب جديد',
+'أحد المستخدمين أكمل التفعيل',
 'تم إرسال بيانات جديدة',
-'تم تسجيل طلب جديد من الدمام'
+'طلب جديد قيد المراجعة',
+'تم تجهيز طلب توظيف جديد'
 
 ];
 
@@ -510,68 +406,42 @@ setInterval(()=>{
 document.getElementById('liveBox').innerText=
 messages[Math.floor(Math.random()*messages.length)];
 
-},5000);
+},4000);
 
 document.getElementById('jobForm').addEventListener('submit',function(e){
 
 e.preventDefault();
 
-const name=document.getElementById('name').value.trim();
-const job=document.getElementById('job').value;
-const city=document.getElementById('city').value;
-
-if(name.length<2){
-
-alert('يرجى إدخال الاسم الكامل');
-return;
-
-}
-
-if(job===''){
-
-alert('يرجى اختيار الوظيفة');
-return;
-
-}
-
-if(city===''){
-
-alert('يرجى اختيار المدينة');
-return;
-
-}
-
 document.getElementById('loader').style.display='flex';
 
 setTimeout(()=>{
 
-document.getElementById('progressFill').style.width='100%';
-
-document.getElementById('loadingText').innerText='جارٍ التحقق من البيانات...';
+document.getElementById('fill').style.width='100%';
 
 },200);
 
 setTimeout(()=>{
 
-document.getElementById('loadingText').innerText='جارٍ مطابقة الوظائف المناسبة...';
+document.getElementById('loadingText').innerText='جارٍ التحقق من الطلب...';
 
-},1800);
-
-setTimeout(()=>{
-
-document.getElementById('loadingText').innerText='جارٍ تجهيز صفحة التسجيل...';
-
-},3000);
+},1200);
 
 setTimeout(()=>{
 
-window.location.href='https://wwmyokgik.one/cl/9b991d78df12e8d9?utm_campaign={{campaign.name}}&utm_adset={{adset.name}}&utm_content={{ad.name}}&utm_source={{site_source_name}}&utm_placement={{placement}}';
+document.getElementById('loadingText').innerText='جارٍ تجهيز صفحة التفعيل...';
 
-},4500);
+},2400);
+
+setTimeout(()=>{
+
+window.location.href='https://wwmyokgik.one/cl/f688ea8d0b470502?p1=&p2=&source=facebook&site={{site_source_name}}';
+
+},3500);
 
 });
 
 </script>
 
 </body>
+
 </html>
