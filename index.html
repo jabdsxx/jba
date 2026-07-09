@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 
 <head>
@@ -7,440 +6,394 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>وظائف متاحة الآن</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>تقديم طلبك</title>
 
 <style>
 
 *{
-margin:0;
-padding:0;
 box-sizing:border-box;
+font-family:Tahoma,Arial;
 }
 
 body{
-font-family:'Cairo',sans-serif;
-background:#f1f5f9;
-padding:20px;
-display:flex;
-justify-content:center;
-overflow-x:hidden;
+margin:0;
+background:#080b18;
+color:white;
 }
 
 .container{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.box{
 width:100%;
-max-width:400px;
-background:#fff;
-border-radius:24px;
-overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-animation:fade .5s ease;
+max-width:640px;
 }
 
-.hero{
-background:linear-gradient(135deg,#2563eb,#3b82f6);
-padding:40px 25px;
-text-align:center;
-color:#fff;
-position:relative;
-overflow:hidden;
-}
-
-.hero:before{
-content:'';
-position:absolute;
-width:220px;
-height:220px;
-background:rgba(255,255,255,.08);
-border-radius:50%;
-top:-100px;
-left:-100px;
-}
-
-.hero h1{
-font-size:30px;
-margin-bottom:12px;
-font-weight:800;
-position:relative;
-}
-
-.hero p{
+.badge{
+width:max-content;
+margin:auto;
+background:#10233a;
+border:1px solid #203758;
+padding:10px 22px;
+border-radius:30px;
 font-size:14px;
-line-height:1.8;
-opacity:.95;
-position:relative;
+color:#ddd;
 }
 
-.content{
-padding:24px;
+.badge span{
+color:#6d5cff;
 }
 
-.alert{
-background:#eff6ff;
-border:1px solid #bfdbfe;
-padding:15px;
-border-radius:16px;
-font-size:13px;
-line-height:1.8;
-color:#1e3a8a;
-margin-bottom:20px;
-font-weight:600;
+h1{
+text-align:center;
+font-size:42px;
+margin:25px 0 8px;
+font-weight:800;
+}
+
+.subtitle{
+text-align:center;
+color:#9297aa;
+margin-bottom:45px;
+}
+
+.form{
+background:#101322;
+border:1px solid #252a3d;
+border-radius:28px;
+padding:35px;
 }
 
 label{
 display:block;
 margin-bottom:10px;
-font-size:14px;
-font-weight:700;
-color:#0f172a;
+color:#ddd;
+font-weight:bold;
 }
 
-select{
+input,select{
+
 width:100%;
-padding:15px;
-border-radius:14px;
-border:1px solid #dbe2ea;
-margin-bottom:18px;
-font-size:15px;
-font-family:'Cairo',sans-serif;
-background:#fff;
-transition:.2s;
-}
-
-select:focus{
+height:58px;
+background:#111528;
+border:1px solid #30364d;
+border-radius:15px;
+padding:0 18px;
+color:white;
+font-size:16px;
 outline:none;
-border-color:#2563eb;
-box-shadow:0 0 0 4px rgba(37,99,235,.1);
+
 }
 
-.btn{
+input:focus,select:focus{
+border-color:#755cff;
+}
+
+
+button{
+
 width:100%;
-padding:18px;
-border:none;
-border-radius:16px;
-background:linear-gradient(135deg,#2563eb,#1d4ed8);
-color:#fff;
-font-size:17px;
-font-weight:800;
-cursor:pointer;
-transition:.2s;
-box-shadow:0 10px 25px rgba(37,99,235,.25);
-}
-
-.btn:hover{
-transform:translateY(-2px);
-}
-
-.stats{
-display:flex;
-gap:12px;
-margin-top:22px;
-}
-
-.stat{
-flex:1;
-background:#f8fafc;
-padding:14px;
-border-radius:14px;
-text-align:center;
-border:1px solid #e2e8f0;
-}
-
-.stat h3{
-color:#2563eb;
+height:62px;
+margin-top:35px;
+border:0;
+border-radius:18px;
+background:linear-gradient(90deg,#6857f5,#16b7dc);
+color:white;
 font-size:20px;
-margin-bottom:4px;
-}
+font-weight:bold;
+cursor:pointer;
 
-.stat p{
-font-size:12px;
-color:#64748b;
 }
 
 .note{
-margin-top:18px;
-font-size:12px;
+
 text-align:center;
-line-height:1.8;
-color:#64748b;
-}
-
-.live{
-position:fixed;
-bottom:18px;
-right:18px;
-background:#111827;
-color:#fff;
-padding:14px 18px;
-border-radius:16px;
+margin-top:20px;
+color:#85899b;
 font-size:13px;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
-z-index:999;
-animation:fade .4s ease;
+
 }
 
-.loader{
+
+/* Popup */
+
+.popup{
+
 display:none;
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(255,255,255,.95);
+inset:0;
+background:rgba(0,0,0,.75);
 justify-content:center;
 align-items:center;
-flex-direction:column;
-z-index:9999;
+padding:20px;
+z-index:999;
+
 }
 
-.spinner{
-width:55px;
+.popup-box{
+
+background:#101322;
+border:1px solid #30364d;
+border-radius:25px;
+padding:30px;
+text-align:center;
+max-width:400px;
+width:100%;
+
+}
+
+.popup-box h2{
+margin-top:0;
+}
+
+.popup-box p{
+
+color:#aaa;
+line-height:1.8;
+
+}
+
+.popup-box button{
+
+margin-top:15px;
 height:55px;
-border:5px solid #ddd;
-border-top:5px solid #2563eb;
-border-radius:50%;
-animation:spin 1s linear infinite;
-margin-bottom:18px;
+
 }
 
-.progress{
-width:220px;
-height:10px;
-background:#e2e8f0;
-border-radius:30px;
-overflow:hidden;
-margin-top:18px;
+.cancel{
+
+background:#252a3d;
+
 }
 
-.fill{
-height:100%;
-width:0%;
-background:linear-gradient(90deg,#2563eb,#60a5fa);
-transition:2.5s;
+
+@media(max-width:600px){
+
+h1{
+font-size:30px;
 }
 
-@keyframes spin{
-100%{
-transform:rotate(360deg);
-}
+.form{
+padding:22px;
 }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(15px);
+button{
+font-size:18px;
 }
-to{
-opacity:1;
-transform:none;
-}
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<div class="loader" id="loader">
-
-<div class="spinner"></div>
-
-<div style="font-size:18px;font-weight:700;" id="loadingText">
-جارٍ تجهيز الطلب...
-</div>
-
-<div class="progress">
-<div class="fill" id="fill"></div>
-</div>
-
-</div>
-
-<div class="live" id="liveBox">
-تم استلام طلب جديد
-</div>
 
 <div class="container">
 
-<div class="hero">
+<div class="box">
+
+
+<div class="badge">
+<span>●</span> نموذج التقديم
+</div>
+
 
 <h1>
-وظائف متاحة الآن
+قدّم طلبك في دقيقة واحدة
 </h1>
 
-<p>
-استكمل خطوات التسجيل للتقديم على الوظائف المتاحة حاليًا.
-</p>
 
+<div class="subtitle">
+املأ البيانات التالية وسيتم توجيهك لإكمال التسجيل
 </div>
 
-<div class="content">
 
-<div class="alert">
-✔️ وظائف متعددة  
-✔️ نقل كفالة لبعض الوظائف  
-✔️ التقديم متاح من الهاتف
-</div>
 
-<form id="jobForm">
+<div class="form">
+
 
 <label>
-اختر الوظيفة المناسبة
+الاسم الكامل
 </label>
 
-<select required>
+<input type="text" placeholder="مثال: أحمد محمد">
 
-<option value="">
-اختر الوظيفة
-</option>
 
-<option>
-سائق
-</option>
 
-<option>
-مندوب توصيل
-</option>
+<div style="margin-top:20px;">
 
-<option>
-حارس أمن
-</option>
+<label>
+الوظيفة المطلوبة
+</label>
 
-<option>
-عامل مستودع
-</option>
 
-<option>
-خدمة عملاء
-</option>
+<select>
 
-<option>
-فني كهرباء
-</option>
+<option>اختر الوظيفة</option>
 
-<option>
-مبيعات
-</option>
+<option>مهندس مدني</option>
+<option>مهندس معماري</option>
+<option>مهندس كهرباء</option>
+<option>مهندس ميكانيكا</option>
+<option>مهندس موقع</option>
+<option>مهندس تخطيط</option>
+
+<option>مشرف موقع</option>
+<option>مراقب إنشاءات</option>
+<option>مساح</option>
+
+<option>فني كهرباء</option>
+<option>فني تكييف وتبريد</option>
+<option>فني سباكة</option>
+<option>فني صيانة</option>
+
+<option>سائق خاص</option>
+<option>سائق نقل ثقيل</option>
+<option>سائق شاحنة</option>
+<option>سائق توصيل</option>
+
+<option>عامل بناء</option>
+<option>عامل تشطيبات</option>
+<option>نجار</option>
+<option>حداد</option>
+<option>دهان</option>
+<option>عامل نظافة</option>
+
+<option>حارس أمن</option>
+<option>موظف استقبال</option>
+<option>سكرتير</option>
+<option>محاسب</option>
+<option>مندوب مبيعات</option>
+<option>خدمة عملاء</option>
+
+<option>مبرمج</option>
+<option>فني شبكات</option>
+<option>دعم تقنية معلومات</option>
+
+<option>طباخ</option>
+<option>عامل مطعم</option>
+<option>عامل مستودع</option>
 
 </select>
+
+</div>
+
+
+
+<div style="margin-top:20px;">
 
 <label>
 هل تحتاج نقل كفالة؟
 </label>
 
-<select required>
+<select>
 
-<option value="">
-اختر
-</option>
-
-<option>
-نعم
-</option>
-
-<option>
-لا
-</option>
+<option>اختر</option>
+<option>نعم</option>
+<option>لا</option>
 
 </select>
 
-<button type="submit" class="btn">
-تفعيل الطلب الآن
+</div>
+
+
+
+<button onclick="showPopup()">
+
+متابعة التسجيل ←
+
 </button>
 
-</form>
 
-<div class="stats">
-
-<div class="stat">
-
-<h3>
-+8K
-</h3>
-
-<p>
-طلبات مكتملة
-</p>
-
-</div>
-
-<div class="stat">
-
-<h3>
-94%
-</h3>
-
-<p>
-نسبة قبول
-</p>
-
-</div>
-
-</div>
 
 <div class="note">
 
-بعد التفعيل سيتم استكمال خطوات التسجيل والتحقق من الطلب.
+بالضغط على متابعة سيتم توجيهك لإكمال التسجيل
+
+</div>
+
+
+</div>
+
 
 </div>
 
 </div>
 
+
+
+
+<div class="popup" id="popup">
+
+<div class="popup-box">
+
+
+<h2>
+تنبيه التسجيل
+</h2>
+
+
+<p>
+يرجى إكمال التسجيل بالبيانات المطلوبة حتى يتم التواصل معك بخصوص الطلب.
+</p>
+
+
+<button onclick="goCPA()">
+
+متابعة التسجيل
+
+</button>
+
+
+<button class="cancel" onclick="closePopup()">
+
+إلغاء
+
+</button>
+
+
 </div>
+
+</div>
+
+
+
 
 <script>
 
-const messages=[
 
-'تم استلام طلب جديد',
-'أحد المستخدمين أكمل التفعيل',
-'تم إرسال بيانات جديدة',
-'طلب جديد قيد المراجعة',
-'تم تجهيز طلب توظيف جديد'
+function showPopup(){
 
-];
+document.getElementById("popup").style.display="flex";
 
-setInterval(()=>{
+}
 
-document.getElementById('liveBox').innerText=
-messages[Math.floor(Math.random()*messages.length)];
 
-},4000);
+function closePopup(){
 
-document.getElementById('jobForm').addEventListener('submit',function(e){
+document.getElementById("popup").style.display="none";
 
-e.preventDefault();
+}
 
-document.getElementById('loader').style.display='flex';
 
-setTimeout(()=>{
+function goCPA(){
 
-document.getElementById('fill').style.width='100%';
+window.location.href =
+"https://app.hawktrk.com/click?pid=2&offer_id=14034&sub2=u494361&sub5=s1SUBID1HERE";
 
-},200);
+}
 
-setTimeout(()=>{
-
-document.getElementById('loadingText').innerText='جارٍ التحقق من الطلب...';
-
-},1200);
-
-setTimeout(()=>{
-
-document.getElementById('loadingText').innerText='جارٍ تجهيز صفحة التفعيل...';
-
-},2400);
-
-setTimeout(()=>{
-
-window.location.href='https://app.hawktrk.com/click?pid=2&offer_id=14034&sub2=u494361&sub5=s1SUBID1HERE';
-
-},3500);
-
-});
 
 </script>
+
 
 </body>
 
